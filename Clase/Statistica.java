@@ -3,7 +3,9 @@ package Clase;
 import java.util.*;
 
 public class Statistica extends CitireFIsier{
-    protected List<ElemCodHuff> ListaElem;public List<ElemCodHuff> ListaElem2;
+    protected List<ElemCodHuff> ListaElem;
+    public List<ElemCodHuff> ListaElem2;
+    protected List<ElemCodHuff> ListaElemCodate = new ArrayList<>();
 
     private final double[] probabilitate = new double[31];
     private double SumProb = 0.0;
