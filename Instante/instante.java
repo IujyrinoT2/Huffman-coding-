@@ -3,6 +3,8 @@ package Instante;
 import Clase.Criptare;
 import Clase.Statistica;
 
+import java.util.Scanner;
+
 public class instante {
     public static void main(String[] args) {
         Statistica stat = new Statistica();
@@ -23,5 +25,11 @@ public class instante {
             System.out.println("Teorema I a lui Shannon este verficata");
         else
             System.out.println("Teorema I a lui Shannon NU este verficata");
+
+        System.out.println("Mesajul de criptat: ");
+        Scanner cin = new Scanner(System.in);
+        String mesaj = cin.nextLine();
+
+        System.out.println(cript.Encrypter(mesaj));
     }
 }

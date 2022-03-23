@@ -8,6 +8,11 @@ public class ElemCodHuff {
     protected ElemCodHuff stanga;
     protected ElemCodHuff dreapta;
 
+    public ElemCodHuff(char caracter, String codHuff) {
+        this.caracter = caracter;
+        this.codHuff = codHuff;
+    }
+
     public ElemCodHuff(char caracter, int frecventa) {
         this.caracter = caracter;
         this.frecventa = frecventa;
