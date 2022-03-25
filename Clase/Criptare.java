@@ -27,11 +27,15 @@ public class Criptare extends Statistica{
     public String Encrypter(String mesajClar) {
         mesajClar = mesajClar.toUpperCase();
         String mesajCriptat = "";
+
+        while(!mesajClar.replace(' ', 'Q').equals(mesajClar))            // Adaugam Q in loc de spatii
+                mesajClar = mesajClar.replace(' ', 'Q');
+
         for(int i = 0; i < mesajClar.length(); i++) {
             for(var elem : ListaElemCodate) {
-                if(mesajClar.toCharArray()[i] == elem.caracter) {
+                if(mesajClar.toCharArray()[i] == elem.caracter)
                     mesajCriptat = mesajCriptat.concat(elem.codHuff);
-                }
+
             }
         }
         return mesajCriptat;
@@ -69,7 +73,6 @@ public class Criptare extends Statistica{
             }
             cuvEnd++;
         }
-        System.out.println(cuvEnd + " / " + mesajCriptat.length());
         return mesajDecrtiptat.toString();
     }
 }
