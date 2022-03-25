@@ -1,5 +1,7 @@
 package Clase;
 
+import java.util.Comparator;
+
 public class Criptare extends Statistica{
 
     public void CodareHuff(ElemCodHuff Nod) {
@@ -33,6 +35,42 @@ public class Criptare extends Statistica{
             }
         }
         return mesajCriptat;
+    }
+
+
+
+    private char SearchElem(String elemCautat) {
+
+        ListaElemCodate.sort(Comparator.comparingInt(elem -> elem.codHuff.length()));
+
+        if(elemCautat.length() < ListaElemCodate.get(0).codHuff.length())          // Daca lungimea elem curaent este mai mica decat lungimea
+            return 0;                                                              // celui mai mic element atunci nu exista
+
+        for(var elem : ListaElemCodate) {
+            if (elem.codHuff.equals(elemCautat))
+                return elem.caracter;
+
+        }
+
+        return 0;
+    }
+
+    public String Decrypter(String mesajCriptat) {
+        StringBuilder mesajDecrtiptat = new StringBuilder();
+        String cuvCurent;
+        int cuvStart = 0, cuvEnd = 1;
+
+        while(cuvEnd < mesajCriptat.length() + 1) {
+            cuvCurent = mesajCriptat.substring(cuvStart, cuvEnd);
+            //System.out.println("cuvCurent=" + cuvCurent);
+            if(SearchElem(cuvCurent) != 0) {
+                mesajDecrtiptat.append(SearchElem(cuvCurent));
+                cuvStart = cuvEnd;
+            }
+            cuvEnd++;
+        }
+        System.out.println(cuvEnd + " / " + mesajCriptat.length());
+        return mesajDecrtiptat.toString();
     }
 }
 

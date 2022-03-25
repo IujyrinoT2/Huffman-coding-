@@ -28,8 +28,12 @@ public class instante {
 
         System.out.println("Mesajul de criptat: ");
         Scanner cin = new Scanner(System.in);
-        String mesaj = cin.nextLine();
+        String mesaj = cin.nextLine(), mesajCriptat, mesajDecriptat;
+        mesajCriptat = cript.Encrypter(mesaj);
 
-        System.out.println(cript.Encrypter(mesaj));
+        System.out.println(mesajCriptat);
+
+        mesajDecriptat = cript.Decrypter(mesajCriptat);
+        System.out.println(mesajDecriptat);
     }
 }
