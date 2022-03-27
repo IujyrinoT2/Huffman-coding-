@@ -41,8 +41,6 @@ public class Criptare extends Statistica{
         return mesajCriptat;
     }
 
-
-
     private char SearchElem(String elemCautat) {
 
         ListaElemCodate.sort(Comparator.comparingInt(elem -> elem.codHuff.length()));
