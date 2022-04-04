@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class instante {
     public static void main(String[] args) {
         Statistica stat = new Statistica();
-        stat.Citire("text.txt");
+        stat.Citire("/home/iujyrino/shkoala2/sem2/Cripto/text.txt");
         stat.AfFrecv();
         stat.AfisareGraf();
         stat.CreareArbore();
@@ -33,7 +33,7 @@ public class instante {
 
         System.out.println(mesajCriptat);
 
-        mesajDecriptat = cript.Decrypter(mesajCriptat);
-        System.out.println(mesajDecriptat);
+        mesajDecriptat = cin.nextLine();
+        System.out.println(cript.Decrypter(mesajDecriptat));
     }
 }

@@ -3,10 +3,24 @@ package Clase;
 public class ElemCodHuff {
     protected char caracter;
     protected int frecventa;
+    protected double probabilitate;
     protected String codHuff;
 
     protected ElemCodHuff stanga;
     protected ElemCodHuff dreapta;
+
+    public ElemCodHuff(char caracter, int frecventa, double probabilitate, String codHuff) {
+        this.caracter = caracter;
+        this.frecventa = frecventa;
+        this.probabilitate = probabilitate;
+        this.codHuff = codHuff;
+    }
+
+    public ElemCodHuff(char caracter, int frecventa, double probabilitate) {
+        this.caracter = caracter;
+        this.frecventa = frecventa;
+        this.probabilitate = probabilitate;
+    }
 
     public ElemCodHuff(char caracter, String codHuff) {
         this.caracter = caracter;
@@ -18,11 +32,18 @@ public class ElemCodHuff {
         this.frecventa = frecventa;
     }
 
+    public ElemCodHuff(char caracter, int frecventa, String codHuff) {
+        this.caracter = caracter;
+        this.frecventa = frecventa;
+        this.codHuff = codHuff;
+    }
+
     @Override
     public String toString() {
         return "ElemCodHuff{" +
                 "caracter=" + caracter +
                 ", frecventa=" + frecventa +
+                ", probabilitate=" + probabilitate +
                 ", codHuff='" + codHuff + '\'' +
                 '}';
     }
@@ -33,6 +54,14 @@ public class ElemCodHuff {
 
     public void setCaracter(char caracter) {
         this.caracter = caracter;
+    }
+
+    public double getProbabilitate() {
+        return probabilitate;
+    }
+
+    public void setProbabilitate(double probabilitate) {
+        this.probabilitate = probabilitate;
     }
 
     public int getFrecventa() {

@@ -5,7 +5,7 @@ import java.util.*;
 public class Statistica extends CitireFIsier{
     protected List<ElemCodHuff> ListaElem;
     public List<ElemCodHuff> ListaElem2;
-    protected List<ElemCodHuff> ListaElemCodate = new ArrayList<>();
+    protected static List<ElemCodHuff> ListaElemCodate = new ArrayList<>();
 
     private final double[] probabilitate = new double[31];
     private double SumProb = 0.0;
@@ -24,8 +24,7 @@ public class Statistica extends CitireFIsier{
         ListaElem2 = new ArrayList<>();
 
         for(int i = 0; i < frecventa.length; i++) {
-            ListaElem.add(new ElemCodHuff(caract[i], frecventa[i]));
-
+            ListaElem.add(new ElemCodHuff(caract[i], frecventa[i], probabilitate[i]));
         }
 
         var ConvLista = ListaElem.toArray();
@@ -57,63 +56,75 @@ public class Statistica extends CitireFIsier{
         System.out.println(Arrays.deepToString(ConvLista));
     }
 
-
-
-
-
     public void AfFrecv() {
         for(int i = 65; i < 91; i++) {
+            /*
             if(frecventa[i-65] < 10)
                 System.out.println("Caracterul: " + (char) i + "\t| " + frecventa[i - 65] + "\t\t| " + frecventa[i - 65] / (double) NrCaractere);
             else
                 System.out.println("Caracterul: " + (char) i + "\t| " + frecventa[i - 65] + "\t| " + frecventa[i - 65] / (double) NrCaractere);
-
+            */
             probabilitate[i - 65] = frecventa[i - 65] / (double) NrCaractere;
             SumProb += probabilitate[i - 65];
             procentaj[i - 65] = (int)((frecventa[i - 65] / (double) NrCaractere) * 100);
         }
 
+        /*
         if(frecventa[26] < 10)
             System.out.println("Caracterul: " + 'Ă' + "\t| " + frecventa[26] + "\t\t| " + frecventa[26] / (double) NrCaractere);
         else
             System.out.println("Caracterul: " + 'Ă' + "\t| " + frecventa[26] + "\t| " + frecventa[26] / (double) NrCaractere);
+
+         */
         probabilitate[26] = frecventa[26] / (double) NrCaractere;
         SumProb += probabilitate[26];
         procentaj[26] = (int)((frecventa[26] / (double) NrCaractere) * 100);
 
+        /*
         if(frecventa[27] < 10)
             System.out.println("Caracterul: " + 'Â' + "\t| " + frecventa[27] + "\t\t| "+ frecventa[27] / (double) NrCaractere);
         else
             System.out.println("Caracterul: " + 'Â' + "\t| " + frecventa[27] + "\t| "+ frecventa[27] / (double) NrCaractere);
+
+         */
         probabilitate[27] = frecventa[27] / (double) NrCaractere;
         SumProb += probabilitate[27];
         procentaj[27] = (int)((frecventa[27] / (double) NrCaractere) * 100);
 
+        /*
         if(frecventa[28] < 10)
             System.out.println("Caracterul: " + 'Î' + "\t| " + frecventa[28] + "\t\t| "+ frecventa[28] / (double) NrCaractere);
         else
             System.out.println("Caracterul: " + 'Î' + "\t| " + frecventa[28] + "\t| "+ frecventa[28] / (double) NrCaractere);
+
+         */
         probabilitate[28] = frecventa[28] / (double) NrCaractere;
         SumProb += probabilitate[28];
         procentaj[28] = (int)((frecventa[28] / (double) NrCaractere) * 100);
 
+        /*
         if(frecventa[29] < 10)
             System.out.println("Caracterul: " + 'Ș' + "\t| " + frecventa[29] + "\t\t| "+ frecventa[29] / (double) NrCaractere);
         else
             System.out.println("Caracterul: " + 'Ș' + "\t| " + frecventa[29] + "\t| "+ frecventa[29] / (double) NrCaractere);
+         */
+
         probabilitate[29] = frecventa[29] / (double) NrCaractere;
         SumProb += probabilitate[29];
         procentaj[29] = (int)((frecventa[29] / (double) NrCaractere) * 100);
 
+        /*
         if(frecventa[30] < 10)
             System.out.println("Caracterul: " + 'Ț' + "\t| " + frecventa[30] + "\t| "+ frecventa[30] / (double) NrCaractere);
         else
             System.out.println("Caracterul: " + 'Ț' + "\t| " + frecventa[30] + "\t| "+ frecventa[30] / (double) NrCaractere);
+
+         */
         probabilitate[30] = frecventa[30] / (double) NrCaractere;
         SumProb += probabilitate[30];
         procentaj[30] = (int)((frecventa[30] / (double) NrCaractere) * 100);
 
-        System.out.println("Suma probabilitatilor: " + SumProb + " / 1");
+       // System.out.println("Suma probabilitatilor: " + SumProb + " / 1");
     }
 
 

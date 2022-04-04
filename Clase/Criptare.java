@@ -10,7 +10,7 @@ public class Criptare extends Statistica{
 
         if(Nod.caracter != '#') {
             System.out.println(Nod.caracter + ": " + Nod.codHuff);
-            ListaElemCodate.add(new ElemCodHuff(Nod.caracter, Nod.codHuff));
+            ListaElemCodate.add(new ElemCodHuff(Nod.caracter, Nod.frecventa, Nod.probabilitate, Nod.codHuff));
         }
 
         if(Nod.getStanga() != null) {
@@ -73,5 +73,8 @@ public class Criptare extends Statistica{
         }
         return mesajDecrtiptat.toString();
     }
+
+    //public void AfisareLista
+
 }
 

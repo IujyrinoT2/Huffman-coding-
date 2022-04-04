@@ -6,9 +6,11 @@ public class CitireFIsier {
 
     protected int[] frecventa = new int[31];
     protected int NrCaractere = 0;
+    public static String sursa;
 
-    public void Citire(String sursa) {
+    public void Citire(String sursaText) {
         try {
+            sursa = sursaText;
             File file = new File(sursa);
             FileReader fileR = new FileReader(file);
             BufferedReader bufferR = new BufferedReader(fileR);
