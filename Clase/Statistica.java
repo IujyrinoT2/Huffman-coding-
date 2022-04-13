@@ -7,8 +7,8 @@ public class Statistica extends CitireFIsier{
     public List<ElemCodHuff> ListaElem2;
     protected static List<ElemCodHuff> ListaElemCodate = new ArrayList<>();
 
-    private final double[] probabilitate = new double[31];
-    private double SumProb = 0.0;
+    private static final double[] probabilitate = new double[31];
+    protected static double SumProb = 0.0;
     private final int[] procentaj = new int [31];
 
     protected char[] caract = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O'
@@ -156,9 +156,9 @@ public class Statistica extends CitireFIsier{
     public double Entropy() {
 
         double entropy = 0;
-        for (double prob : probabilitate)
-            if (prob > 0)
-                entropy += prob * log2(1 / prob);
+        for (var elem : ListaElemCodate)
+            if (elem.probabilitate > 0)
+                entropy += elem.probabilitate * log2(1 / elem.probabilitate);
 
         return entropy;
     }
@@ -167,7 +167,7 @@ public class Statistica extends CitireFIsier{
        double S = 0;
 //S = prob * lungime cod
 
-        for(var elem : ListaElem2)
+        for(var elem : ListaElemCodate)
             S += (elem.frecventa / (double)NrCaractere) * elem.codHuff.length();
 
      return S;

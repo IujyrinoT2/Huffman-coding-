@@ -24,7 +24,7 @@ public class Criptare extends Statistica{
         }
     }
 
-    public String Encrypter(String mesajClar) {
+    public static String Encrypter(String mesajClar) {
         mesajClar = mesajClar.toUpperCase();
         String mesajCriptat = "";
 
@@ -41,7 +41,7 @@ public class Criptare extends Statistica{
         return mesajCriptat;
     }
 
-    private char SearchElem(String elemCautat) {
+    private static char SearchElem(String elemCautat) {
 
         ListaElemCodate.sort(Comparator.comparingInt(elem -> elem.codHuff.length()));
 
@@ -57,9 +57,9 @@ public class Criptare extends Statistica{
         return 0;
     }
 
-    public String Decrypter(String mesajCriptat) {
+    public static String Decrypter(String mesajCriptat) {
         StringBuilder mesajDecrtiptat = new StringBuilder();
-        String cuvCurent;
+        String cuvCurent, mesajDecriptatString;
         int cuvStart = 0, cuvEnd = 1;
 
         while(cuvEnd < mesajCriptat.length() + 1) {
@@ -71,7 +71,11 @@ public class Criptare extends Statistica{
             }
             cuvEnd++;
         }
-        return mesajDecrtiptat.toString();
+
+        mesajDecriptatString = mesajDecrtiptat.toString();
+        mesajDecriptatString = mesajDecriptatString.replaceAll("Q", " ");
+
+        return mesajDecriptatString;
     }
 
     //public void AfisareLista

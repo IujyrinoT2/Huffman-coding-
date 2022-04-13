@@ -5,7 +5,7 @@ import java.io.*;
 public class CitireFIsier {
 
     protected int[] frecventa = new int[31];
-    protected int NrCaractere = 0;
+    protected static int NrCaractere = 0;
     public static String sursa;
 
     public void Citire(String sursaText) {

@@ -5,9 +5,13 @@ import Clase.Statistica;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 
 public class OpTabel extends Statistica{
@@ -37,6 +41,18 @@ public class OpTabel extends Statistica{
         Tabel.setItems(getElement());
 
         return Tabel;
+    }
+
+    public static void display() {
+        Label TitluTabel = new Label(sursa);
+        TitluTabel.setFont(Font.font(16));
+
+        VBox panouCentral = new VBox(10);
+
+        panouCentral.setAlignment(Pos.TOP_CENTER);
+        panouCentral.getChildren().add(TitluTabel);
+        panouCentral.getChildren().add(AppFrame.tabel);
+        AppFrame.Cadru.setCenter(panouCentral);
     }
 
     public ObservableList<ElemCodHuff> getElement() {

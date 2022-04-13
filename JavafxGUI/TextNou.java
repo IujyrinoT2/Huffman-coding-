@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class TextNou {
+public class TextNou extends Statistica{
     public static void display() {
         Stage fereastra = new Stage();
 
@@ -40,6 +40,11 @@ public class TextNou {
                 String sursa = db.getFiles().toString();
                 Statistica stat = new Statistica();
                 sursa = sursa.substring(1, sursa.length() - 1);
+
+                Statistica.ListaElemCodate.clear();
+                Statistica.SumProb = 0;
+                Statistica.NrCaractere = 0;
+
                 stat.Citire(sursa);
                 stat.AfFrecv();
                 stat.CreareArbore();
@@ -49,16 +54,10 @@ public class TextNou {
                 OpTabel tabelCreat = new OpTabel();
                 AppFrame.tabel = tabelCreat.CreareTabel();
 
-
-                Label TitluTabel = new Label("Huffman");
+                Label TitluTabel = new Label(sursa);
                 TitluTabel.setFont(Font.font(16));
 
-                VBox panouCentral = new VBox(10);
-
-                panouCentral.setAlignment(Pos.TOP_CENTER);
-                panouCentral.getChildren().add(TitluTabel);
-                panouCentral.getChildren().add(AppFrame.tabel);
-                AppFrame.Cadru.setCenter(panouCentral);
+                OpTabel.display();
 
                 fereastra.close();
             }

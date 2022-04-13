@@ -12,11 +12,10 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import Clase.Statistica;
+import org.w3c.dom.Text;
 
 public class AppFrame {
     protected static TableView tabel;
-
-    protected static Boolean RulareNoua = false;
 
     protected static BorderPane Cadru = new BorderPane();
 
@@ -26,42 +25,50 @@ public class AppFrame {
 
     public static void display() {
 
-
-        fereastra.setTitle("Criptare Huffman");
+        fereastra.setTitle("Codificare Huffman");
 
         // Top menu
-        HBox topMenu1 = new HBox(20);
+        HBox topMenu = new HBox(20);
         HBox centerMenu = new HBox();
+        HBox botMenu = new HBox();
 
         Button butonA = new Button("Text Nou");
-        butonA.setOnAction(e -> {
-            RulareNoua = false;
-            TextNou.display();
-
-        });
+        butonA.setOnAction(e -> TextNou.display());
 
         Button butonB = new Button("Statistica");
+        butonB.setOnAction(e -> StatisticaGUI.display());
+
         Button butonC = new Button("Codificare");
-        Button butonD = new Button("Analiza cod");
-        topMenu1.getChildren().add(butonA);
-        topMenu1.setAlignment(Pos.CENTER);
-        topMenu1.getChildren().add(butonB);
-        topMenu1.getChildren().add(butonC);
-        topMenu1.getChildren().add(butonD);
-        topMenu1.setPadding(new Insets(10,20,20,20));
+        butonC.setOnAction(e -> CriptareGUI.display());
 
-        //Panou central
+        Button butonD = new Button("Tabel");
+        try {
+            butonD.setOnAction(e -> OpTabel.display());
+        }
+        catch (NullPointerException e) {
+            Label Eroare = new Label("Tabelul este gol");
+            Eroare.setTextFill(Color.RED);
+            Eroare.setBackground(Background.fill(Color.GREY));
 
+        }
 
+        botMenu.setAlignment(Pos.CENTER);
+        botMenu.getChildren().add(butonA);
+        botMenu.setPadding(new Insets(10,10,10,10));
 
-        Cadru.setTop(topMenu1);
-        System.out.println(RulareNoua);
+        topMenu.setAlignment(Pos.CENTER);
+        topMenu.getChildren().add(butonD);
+        topMenu.getChildren().add(butonB);
+        topMenu.getChildren().add(butonC);
+        topMenu.setPadding(new Insets(10,10,10,10));
 
+        Cadru.setTop(topMenu);
+        Cadru.setBottom(botMenu);
 
+        scena = new Scene(Cadru, 510, 510);
 
-        scena = new Scene(Cadru, 500, 500);
-
-        topMenu1.setBackground(Background.fill(Color.rgb(53, 53, 53)));
+        topMenu.setBackground(Background.fill(Color.rgb(53, 53, 53)));
+        botMenu.setBackground(Background.fill(Color.rgb(53, 53, 53)));
 
         fereastra.setScene(scena);
         fereastra.show();
